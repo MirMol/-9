@@ -1,0 +1,29 @@
+from tkinter import *
+import random
+size_x, size_y = 1200, 700 
+def click():
+    global check
+    global fig
+    if check==True:
+        a=random.randint(1,3)
+        if a==1:
+            c=fig.create_rectangle(random.randint(0, size_x),random.randint(0, size_y), random.randint(0, size_x),random.randint(0, size_y), fill="yellow",)
+        elif a==2:
+            c=fig.create_oval(random.randint(0, size_x),random.randint(0, size_y), random.randint(0, size_x),random.randint(0, size_y), fill="yellow")
+        elif a==3:
+            c=fig.create_polygon(random.randint(0, size_x),random.randint(0, size_y),
+                               random.randint(0, size_x),random.randint(0, size_y),random.randint(0, size_x),random.randint(0, size_y), fill="yellow")
+        check = False
+    else:
+        fig.delete('all')
+        check = True
+check= True  
+root = Tk()
+root.title('Игра')
+root.geometry("1200x700")
+root.resizable(False, False)
+fig = Canvas(root, height=700, width=1200, bg="gray")
+fig.pack()
+b=Button(root, text='Нажми', activebackground='red', command=click)
+b.place(x=500,y=650)
+root.mainloop()
