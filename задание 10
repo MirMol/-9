@@ -1,0 +1,16 @@
+from tkinter import *
+def a():
+    i=str(e.get())+"!"
+    l2.config(text='Привет,'+i)
+root = Tk()
+root.title('Поздаровайся со мной!')
+root.geometry("300x130")
+root.resizable(False, False)
+l1=Label(text='Введите своё имя')
+l1.pack()
+e=Entry()
+e.pack()
+l2= Label()
+l2.pack()
+Button(text='Нажми', width=10, height=1, activebackground='red', command=a).pack()
+root.mainloop()
